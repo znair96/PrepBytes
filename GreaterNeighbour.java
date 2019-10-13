@@ -22,6 +22,7 @@ public class GreaterNeighbour
                2 - 1 and 3
                3 - 2 and 4
              */
+            boolean eflag=false;
             int l = arr.length-1;
             for(int i=0;i<n;i++)
             {
@@ -29,29 +30,45 @@ public class GreaterNeighbour
                 {
                    if(arr[i]>arr[i+1])
                    {
+                       eflag=false;
                        System.out.print(i+" ");
                    }
-                   else
+                    else if(arr[i]==arr[i+1])
                    {
-                       System.out.print((i+1)+" ");
+                        eflag=true;
                    }
                 }
                 else if(i==l)
                 {
-                    if(arr[l]>arr[l-1])
+                    if(arr[i]>arr[i-1])
                     {
-                        System.out.print(l+" ");
+                        eflag=false;
+                        System.out.print(i+" ");
+                    }
+                     else if(arr[i]==arr[i-1])
+                    {
+                         eflag=true;
                     }
                 }
                 else
                 {
                     if(arr[i]>arr[i+1] && arr[i]>arr[i-1])
                     {
+                        eflag=false;
                         System.out.print(i+" ");
                     }
-
+                    else if(arr[i]==arr[i-1]&&arr[i]==arr[i+1])
+                    {
+                         eflag=true;
+                    }
                 }
             }
+            //System.out.print(" The flag is set to : " +eflag);
+            if(eflag)
+            {
+              System.out.print("-1");
+            }
+            System.out.println();
         }
     }
 }
