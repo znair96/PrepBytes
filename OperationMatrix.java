@@ -17,6 +17,7 @@ public class OperationMatrix {
             }
             System.out.println();
         }
+        int[][] sumMatrix = addMatrix(m1,m2);
 
     }
     public static int[] getHorizontal2D1DArray(int index,int[][] arr)
@@ -62,5 +63,25 @@ public class OperationMatrix {
             sum = sum+A[i]*B[i];
         }
         return sum;
+    }
+        public static int[][] addMatrix(int[][] arr1,int[][] arr2)
+    {
+        if(arr1.length == arr2.length)
+        {
+            int[][] sumMatrix = new int[arr1.length][arr2.length];
+            for(int i=0;i<arr1.length;i++)
+            {
+                for(int j=0;j<arr1.length;j++)
+                {
+                    sumMatrix[i][j] = arr1[i][j] + arr2[i][j];
+                }
+            }
+            return sumMatrix;
+        }
+        else
+        {
+            System.out.print("");
+            return null;
+        }
     }
 }
